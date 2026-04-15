@@ -7,9 +7,93 @@
     <title>Document</title>
 </head>
 <style>
-    .is-depressed {
-        background-color: beige;
+    * {
+        padding: 0;
+        margin: 0;
     }
+
+    .calculator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: rgb(34, 33, 33);
+    }
+
+    .display {
+        background-color: blanchedalmond;
+        height: 50px;
+        width:100%;
+        max-width: 300px;
+         display: flex;
+        align-items: center;
+        padding:5px 12px;
+        margin-bottom: 15px;
+        background-color:  rgb(28, 27, 27);
+        border-radius: 10px;
+        color: white;
+        box-shadow: 2px 2px 5px gray;
+        font-size: 1.25rem;
+    }
+
+    .calculator-keys {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(5,1fr);
+        grid-auto-rows: 50px;
+        gap: 8px;
+        max-width: 320px;
+        width: 100%;
+    }
+
+    .calculator-keys button {
+        border-radius: 15px;
+        border: none;
+        padding: 15px 20px;
+        background-color: rgb(28, 27, 27);
+        color: white;
+        box-shadow: 2px 2px 5px gray;
+        font-size: 1.25rem;
+    }
+
+    .calculator-keys .zero {
+        grid-column: span 2;
+
+    }
+
+    .calculator-keys .key-equal {
+        grid-row: span 2;
+        background-color: rgb(45, 174, 216);
+    }
+     .calculator-keys button:hover{
+        background-color: rgb(22, 21, 21);
+     }
+        .calculator-keys .key-equal:hover{
+             background-color: rgb(29, 180, 231);
+        }
+
+    .calculator-keys [data-action="add"],
+    .calculator-keys [data-action="subtract"],
+    .calculator-keys [data-action="multiply"],
+    .calculator-keys [data-action="divide"],
+    .calculator-keys [data-action="clear"],
+     .calculator-keys [data-action="erase"]
+    {
+    color:rgb(45, 174, 216);
+    }
+
+    @media(max-width:500){
+        .display{
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .calculator-keys button{
+            font-size: 1rem;
+        }
+    }
+
+    
 </style>
 
 <body>
@@ -17,38 +101,30 @@
         <div class="display">0</div>
 
         <div class="calculator-keys">
-            <div>
-                <button class="clear" data-action="clear">AC</button>
-                <button data-action="erase">clear</button>
-                <button data-action="divide">/</button>
-                <button data-action="multiply">*</button>
-            </div>
 
-            <div>
-                <button>9</button>
-                <button>8</button>
-                <button>7</button>
-                <button data-action="subtract">-</button>
-            </div>
+            <button class="clear" data-action="clear">AC</button>
+            <button class="del" data-action="erase">del</button>
+            <button data-action="divide">/</button>
+            <button data-action="multiply">*</button>
 
-            <div>
-                <button>6</button>
-                <button>5</button>
-                <button>4</button>
-                <button data-action="add" class="key-equal">+</button>
-            </div>
+            <button>9</button>
+            <button>8</button>
+            <button>7</button>
+            <button data-action="subtract">-</button>
 
-            <div>
-                <button>3</button>
-                <button>2</button>
-                <button>1</button>
-            </div>
+            <button>6</button>
+            <button>5</button>
+            <button>4</button>
+            <button data-action="add">+</button>
 
-            <div class="row5">
-                <button data-action="decimal">.</button>
-                <button>0</button>
-                <button data-action="equal">=</button>
-            </div>
+            <button>3</button>
+            <button>2</button>
+            <button>1</button>
+            <button data-action="equal" class="key-equal">=</button>
+
+            <button data-action="decimal">.</button>
+            <button class="zero">0</button>
+
         </div>
     </div>
     <script src="script.js"></script>

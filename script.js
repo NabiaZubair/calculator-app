@@ -3,7 +3,6 @@ let keys = document.querySelector(".calculator-keys");
 let display = document.querySelector(".display");
 let clear = document.querySelector(".clear");
 
-
 keys.addEventListener("click", (e) => {
     if (e.target.matches("button")) {
         let key = e.target;
@@ -11,19 +10,13 @@ keys.addEventListener("click", (e) => {
         let keyContent = key.textContent;
         let displayNum = display.textContent;
         let previousKeyType = calculator.dataset.previousKeyType;
-
-        if (action == "add" || action == "subtract" || action == "multiply" || action == "divide") {
-            document
-                .querySelectorAll('[data-action="add"], [data-action="subtract"], [data-action="multiply"], [data-action="divide"]')
-                .forEach(btn => btn.classList.remove("is-depressed"));
-            key.classList.add("is-depressed");
+        if (action === "add" || action === "subtract" || action === "multiply" || action === "divide") {
             calculator.dataset.previousKeyType = "operator";
             calculator.dataset.firstValue = displayNum;
             calculator.dataset.operator = action;
         }
 
         if (!action) {
-
             if (displayNum === '0' || previousKeyType === "operator" || previousKeyType === "equal" || previousKeyType === "clear") {
                 display.textContent = keyContent;
             } else {
@@ -67,11 +60,22 @@ keys.addEventListener("click", (e) => {
                 display.textContent = result;
                 calculator.dataset.firstValue = result;
             }
-
             calculator.dataset.previousKeyType = "equal";
             calculator.dataset.operator = "";
         }
     }
+
+});
+
+let del = document.querySelector(".del");
+del.addEventListener("click", () => {
+    if (display.textContent > 1) {
+        display.textContent = display.textContent.slice(0, -1);
+    }
+    else {
+        display.textContent = "0";
+    }
+    calculator.dataset.previousKeyType = "delete";
 });
 clear.addEventListener("click", () => {
     display.textContent = "0";
@@ -79,7 +83,5 @@ clear.addEventListener("click", () => {
     calculator.dataset.secondValue = "";
     calculator.dataset.operator = "";
     calculator.dataset.previousKeyType = "clear";
-    Array.from(keys.children).forEach(k => {
-        k.classList.remove("is-depressed");
-    });
+
 });
