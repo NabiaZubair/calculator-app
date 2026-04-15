@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .is-depressed {
+        background-color: beige;
+    }
+</style>
+
+<body>
+    <div class="calculator">
+        <div class="display">0</div>
+
+        <div class="calculator-keys">
+            <div>
+                <button class="clear" data-action="clear">AC</button>
+                <button data-action="erase">clear</button>
+                <button data-action="divide">/</button>
+                <button data-action="multiply">*</button>
+            </div>
+
+            <div>
+                <button>9</button>
+                <button>8</button>
+                <button>7</button>
+                <button data-action="subtract">-</button>
+            </div>
+
+            <div>
+                <button>6</button>
+                <button>5</button>
+                <button>4</button>
+                <button data-action="add" class="key-equal">+</button>
+            </div>
+
+            <div>
+                <button>3</button>
+                <button>2</button>
+                <button>1</button>
+            </div>
+
+            <div class="row5">
+                <button data-action="decimal">.</button>
+                <button>0</button>
+                <button data-action="equal">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
